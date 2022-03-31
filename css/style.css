@@ -1,0 +1,98 @@
+:root {
+    --color-1: #442288;
+    --color-2: #4c88d8;
+    --color-3: #b42ca9;
+    --color-4: #4013e0;
+    --color-5: #eb7d5b;
+    --angle: 0deg;
+}
+
+@keyframes rotate {
+    to {
+        --angle: 360deg;
+    }
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+body {
+    color: var(--color-1);
+    margin: 0px;
+    font-family: 'Palette Mosaic', cursive;
+}
+
+.content {
+    display: block;
+    height: 100%;
+    margin: 20px;
+    background-color: #ffffff;
+}
+
+.header-del {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    text-align: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.header-del h2 {
+    font-family: "Palette Mosaic", cursive;
+    font-size: 2.5vw;
+    font-weight: 900;
+    line-height: 5vw;
+    text-transform: uppercase;
+    background: linear-gradient( var(--angle), var(--color-1) 19%, transparent 19%, transparent 20%, var(--color-2) 20%, var(--color-2) 39%, transparent 39%, transparent 40%, var(--color-3) 40%, var(--color-3) 59%, transparent 59%, transparent 60%, var(--color-4) 60%, var(--color-4) 79%, transparent 79%, transparent 80%, var(--color-5) 80%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: 10s rotate linear infinite;
+}
+
+.header-emoji {
+    font-size: 35px;
+    padding-left: 20px;
+}
+
+.content-wrapper {
+    justify-content: center;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.actual-model model-viewer {
+    width: 100%;
+    max-height: 350px;
+    min-height: 350px;
+    max-width: 350px;
+}
+
+.actual-model {
+    margin: 20px;
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.credits {
+    position: fixed;
+    bottom: 0px;
+    right: 20px;
+    padding: 20px;
+}
+
+.class-name {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}

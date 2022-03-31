@@ -1,0 +1,29 @@
+[{
+        "classe": "COMION-2021-04-DE-INT-05",
+        "progetti": [
+            "emoji.glb",
+            "entrataStazione.glb",
+            "pixel-art-steve.glb",
+            "rovinaAereo.glb",
+            "stanza-di-contenimento.glb"
+        ]
+    },
+    {
+        "classe": "COMION-2021-04-JD-BAS-14",
+        "progetti": [
+            "casaConOrtoERecinto.glb",
+            "casaSullAcqua.glb",
+            "depositoPiccone.glb",
+            "mercato.gls"
+        ]
+    },
+    {
+        "classe": "COMION-2021-06-DE-BAS-06",
+        "progetti": [
+            "casaSemplice.glb",
+            "cuoreColorato.glb",
+            "pecoraCattiva.glb",
+            "torreDelCostruttore.glb"
+        ]
+    }
+]
