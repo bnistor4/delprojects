@@ -25,5 +25,11 @@
             "pecoraCattiva.glb",
             "torreDelCostruttore.glb"
         ]
+    },
+    {
+        "classe": "Martina",
+        "progetti": [
+            "casaEncanto.glb"
+        ]
     }
 ]
