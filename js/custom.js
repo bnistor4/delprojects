@@ -19,7 +19,7 @@ function loadajax(lista) {
         console.log(progetti);
         progetti.forEach(elementProgetto => {
             $('.content-wrapper').append('<div class="actual-model">' + "<div class='class-name'>" + element.classe + " &#x1F31F;</div>");
-            $(".actual-model:last-of-type").append("<model-viewer camera-controls src='modelli/" + element.classe + "/" + elementProgetto + "' alt='" + element.classe + "'></model-viewer></div>");
+            $(".actual-model:last-of-type").append("<model-viewer camera-controls src='delprojects/modelli/" + element.classe + "/" + elementProgetto + "' alt='" + element.classe + "'></model-viewer></div>");
         });
     });
 
