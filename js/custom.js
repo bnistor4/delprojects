@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var $listaProgetti;
 
-    readTextFile("/modelli/modelli.json", function(text) {
+    readTextFile("/delprojects/modelli/modelli.json", function(text) {
         var listaProgettiTemp = JSON.parse(text);
         $listaProgetti = listaProgettiTemp;
     });
