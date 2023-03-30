@@ -1,31 +1,39 @@
 $(document).ready(function () {
-  var $listaProgetti;
+  let listaProgetti;
 
-  readTextFile("/delprojects/modelli/modelli.json", function (text) {
-    var listaProgettiTemp = JSON.parse(text);
-    $listaProgetti = listaProgettiTemp;
+  function loadJSON(callback) {
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open("GET", "/modelli/modelli.json", true);
+    xobj.onreadystatechange = function () {
+      if (xobj.readyState === 4 && xobj.status === 200) {
+        callback(xobj.responseText);
+      }
+    };
+    xobj.send(null);
+  }
+
+  loadJSON(function (response) {
+    listaProgetti = JSON.parse(response);
+    console.log(listaProgetti);
+    loadajax(listaProgetti);
   });
-
-  console.log($listaProgetti);
-
-  setTimeout(function () {
-    loadajax($listaProgetti);
-  }, 1000);
 });
 
 function loadajax(lista) {
   lista.forEach((element) => {
-    progetti = element.progetti;
-    console.log(progetti);
+    const progetti = element.progetti;
     progetti.forEach((elementProgetto) => {
       $(".content-wrapper").append(
         '<div class="actual-model">' +
-          "<div class='class-name'>" +
+          "<div class='class-name " +
           element.classe +
-          " &#x1F31F;</div>"
+          "'>" +
+          element.classe +
+          " ⭐</div>"
       );
       $(".actual-model:last-of-type").append(
-        "<model-viewer camera-controls src='/delprojects/modelli/" +
+        "<model-viewer camera-controls src='/modelli/" +
           element.classe +
           "/" +
           elementProgetto +
@@ -37,14 +45,39 @@ function loadajax(lista) {
   });
 }
 
-function readTextFile(file, callback) {
-  var rawFile = new XMLHttpRequest();
-  rawFile.overrideMimeType("application/json");
-  rawFile.open("GET", file, true);
-  rawFile.onreadystatechange = function () {
-    if (rawFile.readyState === 4 && rawFile.status == "200") {
-      callback(rawFile.responseText);
-    }
-  };
-  rawFile.send(null);
+function creaMenu(data) {
+  const selectMenu = document.getElementById("menu-filtro");
+
+  // Aggiunge le opzioni del menu basate sui dati
+  data.forEach((modello) => {
+    const option = document.createElement("option");
+    option.value = modello.classe;
+    option.text = modello.classe;
+    selectMenu.add(option);
+  });
 }
+
+function mostraClasse(classeSelezionata) {
+  const oggetti = document.querySelectorAll(".actual-model");
+
+  oggetti.forEach((oggetto) => {
+    const nomeClasse = oggetto.querySelector(".class-name").textContent;
+    if (nomeClasse.includes(classeSelezionata)) {
+      oggetto.style.display = "block";
+    } else {
+      oggetto.style.display = "none";
+    }
+  });
+}
+
+fetch("/modelli/modelli.json")
+  .then((response) => response.json())
+  .then((data) => {
+    creaMenu(data);
+    const selectMenu = document.getElementById("menu-filtro");
+    selectMenu.addEventListener("change", () => {
+      const classeSelezionata = selectMenu.value;
+      mostraClasse(classeSelezionata);
+    });
+  })
+  .catch((error) => console.error(error));

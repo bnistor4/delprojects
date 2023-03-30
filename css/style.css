@@ -32,6 +32,14 @@ body {
   background-color: #ffffff;
 }
 
+.content-wrapper {
+  max-width: 1440px;
+  justify-content: center;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .header-del {
   display: flex;
   justify-content: center;
@@ -50,40 +58,14 @@ body {
   font-weight: 900;
   line-height: 5vw;
   text-transform: uppercase;
-  background: linear-gradient(
-    var(--angle),
-    var(--color-1) 19%,
-    transparent 19%,
-    transparent 20%,
-    var(--color-2) 20%,
-    var(--color-2) 39%,
-    transparent 39%,
-    transparent 40%,
-    var(--color-3) 40%,
-    var(--color-3) 59%,
-    transparent 59%,
-    transparent 60%,
-    var(--color-4) 60%,
-    var(--color-4) 79%,
-    transparent 79%,
-    transparent 80%,
-    var(--color-5) 80%
-  );
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
+  color: var(--color-2);
 }
 
 .header-emoji {
   font-size: 35px;
   padding-left: 20px;
-}
-
-.content-wrapper {
-  justify-content: center;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .actual-model model-viewer {
@@ -98,7 +80,7 @@ body {
   width: 100%;
   max-width: 350px;
   padding: 20px;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  box-shadow: rgba(99, 116, 121, 0.2) 0px 2px 8px 0px;
 }
 
 .credits {
@@ -113,4 +95,37 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: 18px;
+}
+
+.section-title {
+  text-align: center;
+  max-width: 1440px;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 18px;
+  color: var(--color-5);
+  font-weight: 600;
+}
+
+select {
+  appearance: none;
+  background-color: var(--color-5);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  width: 250px;
+  outline: none;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+select:hover {
+  background-color: var(--color-5);
+}
+
+select:focus {
+  background-color: var(--color-5);
+  box-shadow: 0 0 5px rgb(238, 201, 81);
 }
